@@ -12,7 +12,8 @@ test('all five installers use the versioned public repository',()=>{
  const version=require('../package.json').version;
  const links=[...html.matchAll(/data-download="[^"]+" href="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(links.length,5);
- for(const link of links)assert.ok(link.startsWith(`https://github.com/solaim/zhenjiang-releases/releases/download/v${version}/zhenjiang-${version}-`));
+ const suffixes=['mac-arm64.dmg','mac-x64.dmg','win-x64.exe','linux-x86_64.AppImage','linux-amd64.deb'];
+ assert.deepEqual(links,suffixes.map(suffix=>`https://github.com/solaim/zhenjiang-releases/releases/download/v${version}/zhenjiang-${version}-${suffix}`));
 });
 test('build publishes only product assets, without application or local materials',()=>{
  const names=fs.readdirSync('dist').sort();
