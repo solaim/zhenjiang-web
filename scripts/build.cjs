@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const { version } = require('../package.json');
+const root = path.join(__dirname,'..');
+const source = root, output = path.join(root,'dist');
+const repository = 'https://github.com/solaim/zhenjiang-releases';
+fs.rmSync(output,{recursive:true,force:true}); fs.mkdirSync(output,{recursive:true});
+for (const item of ['assets','styles.css','app.js','_headers','robots.txt']) fs.cpSync(path.join(source,item),path.join(output,item),{recursive:true});
+const html=fs.readFileSync(path.join(source,'index.html'),'utf8').replaceAll('{{VERSION}}',version).replaceAll('{{YEAR}}',String(new Date().getUTCFullYear())).replaceAll('{{DOWNLOAD_BASE}}',`${repository}/releases/download/v${version}`);
+if (/\{\{\w+\}\}/.test(html)) throw new Error('Unresolved site variables');
+fs.writeFileSync(path.join(output,'index.html'),html);
+fs.writeFileSync(path.join(output,'release.json'),JSON.stringify({version,repository,release:`${repository}/releases/tag/v${version}`},null,2)+'\n');
+console.log(`Product site built: dist (v${version})`);

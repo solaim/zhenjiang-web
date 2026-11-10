@@ -1,0 +1,13 @@
+{
+  "name": "zhenjiang-product-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "帧匠产品页与公开下载入口",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
