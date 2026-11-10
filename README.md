@@ -17,7 +17,7 @@ python3 -m http.server 4173 --directory dist
 
 ## Cloudflare Pages
 
-项目名 `zhenjiang`，GitHub仓库 `solaim/zhejiang-web`，生产分支 `main`，框架预设“无”，构建命令 `npm run build`，输出目录 `dist`，Node版本22。成功连接后，main分支推送会自动部署。
+项目名 `zhenjiang`，GitHub仓库 `solaim/zhenjiang-web`，生产分支 `main`，框架预设“无”，构建命令 `npm run build`，输出目录 `dist`，Node版本22。成功连接后，main分支推送会自动部署。
 
 也可通过本人已认证的 Wrangler 执行 `npx wrangler@4 pages deploy dist --project-name=zhenjiang --branch=main`。
 
