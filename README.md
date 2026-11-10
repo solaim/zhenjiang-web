@@ -2,6 +2,8 @@
 
 帧匠官网与下载入口，独立于桌面应用源码管理。应用源码仓库保持私有；公开安装包与校验值保存在 [zhenjiang-releases](https://github.com/solaim/zhenjiang-releases/releases)。
 
+产品页：https://zhenjiang-66h.pages.dev/
+
 ## 本地开发
 
 ```sh
